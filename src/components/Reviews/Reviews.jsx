@@ -1,9 +1,15 @@
-function Reviews() {
+import './Review.css';
+
+function Reviews({ reviews }) {
   return (
-    <div>
-      <p>My reviews will go here!</p>
+    <div className="reviews">
+      <ul className="reviews__list">
+        {reviews && reviews.map((review) => {
+          return <li key={review.id} className="reviews__item">{review.title}</li>
+        })}
+      </ul>
     </div>
-  );
+  )
 }
 
 export default Reviews;
