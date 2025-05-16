@@ -1,19 +1,20 @@
-import { Link } from "react-router-dom";
-import "./Reviews.css";
+import './Reviews.css';
+import { Link } from 'react-router-dom';
 
 function Reviews({ reviews }) {
   return (
     <div className="reviews">
-      <ul className="reviews__list">
-        {reviews &&
-          reviews.map((review) => {
-            return (
-              <li key={review.id} className="reviews__item">
-                <Link to={`${review.id}`}>{review.title}</Link>
-              </li>
-            );
-          })}
-      </ul>
+      {!reviews?.length ? (
+        <p>No reviews available.</p>
+      ) : (
+        <ul className="reviews__list">
+          {reviews.map((review) => (
+            <li key={review.id} className="reviews__item">
+              <Link to={`/reviews/${review.id}`}>{review.title}</Link>
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 }
