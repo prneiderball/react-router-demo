@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./PageNotFound.css";
 
 export function PageNotFound() {
@@ -9,6 +10,9 @@ export function PageNotFound() {
       <p className="not-found__text">
         Uh oh! There&apos;s nothing here... Sorry. 🥺
       </p>
+      <Link type="button" onClick={() => navigate("/")} to="/">
+        Return Home
+      </Link>
     </div>
   );
 }
